@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="_SOURCE Common\Animations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\D2DGraphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\HighPrecisionTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\InputDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Letters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\SpriteSheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Tiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Vectors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Win32Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\Character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\LevelController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\LevelOne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\PlayerCharacter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\TileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\KeyboardInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\deathTraps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\GameLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Doors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\TransitionMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Game\PauseMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_SOURCE Common\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="_SOURCE Game\Character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\D2DGraphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\LevelController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\Letters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\LevelOne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\SpriteSheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\PlayerCharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\TileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\Tiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\Win32Function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\deathTraps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\GameLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\Doors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\TransitionMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Game\PauseMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_SOURCE Common\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="_SOURCE Assets\Cursor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\defaultTiles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\GameFont.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\RustyTile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\Selecter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\Spikes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\spriteSheet 0.1 flipped.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\spriteSheet 0.1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\spriteSheet 0.2 flipped.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\spriteSheet 0.2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\Icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\Arrow up.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

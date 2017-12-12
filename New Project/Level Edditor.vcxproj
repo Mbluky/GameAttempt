@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="_SOURCE Common\Animations.h" />
+    <ClInclude Include="_SOURCE Common\D2DGraphics.h" />
+    <ClInclude Include="_SOURCE Common\deathTraps.h" />
+    <ClInclude Include="_SOURCE Common\Doors.h" />
+    <ClInclude Include="_SOURCE Common\HighPrecisionTimer.h" />
+    <ClInclude Include="_SOURCE Common\InputDevice.h" />
+    <ClInclude Include="_SOURCE Common\Letters.h" />
+    <ClInclude Include="_SOURCE Common\SpriteSheet.h" />
+    <ClInclude Include="_SOURCE Common\Tiles.h" />
+    <ClInclude Include="_SOURCE Common\Vectors.h" />
+    <ClInclude Include="_SOURCE Common\Win32Functions.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\GameLevel.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\KeyboardInput.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\LevelController.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\LevelOne.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\tilemanager.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\TilePlacer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="_SOURCE Assets\Cursor.png" />
+    <Image Include="_SOURCE Assets\Default Door.png" />
+    <Image Include="_SOURCE Assets\defaultTiles.png" />
+    <Image Include="_SOURCE Assets\GameFont.png" />
+    <Image Include="_SOURCE Assets\Icon.ico" />
+    <Image Include="_SOURCE Assets\RustyTile.png" />
+    <Image Include="_SOURCE Assets\Selecter.png" />
+    <Image Include="_SOURCE Assets\Spikes.png" />
+    <Image Include="_SOURCE Assets\spriteSheet 0.2 flipped.png" />
+    <Image Include="_SOURCE Assets\spriteSheet 0.2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="_SOURCE Common\D2DGraphics.cpp" />
+    <ClCompile Include="_SOURCE Common\deathTraps.cpp" />
+    <ClCompile Include="_SOURCE Common\Doors.cpp" />
+    <ClCompile Include="_SOURCE Common\Letters.cpp" />
+    <ClCompile Include="_SOURCE Common\SpriteSheet.cpp" />
+    <ClCompile Include="_SOURCE Common\Tiles.cpp" />
+    <ClCompile Include="_SOURCE Common\Win32Function.cpp" />
+    <ClCompile Include="_SOURCE LevelEdditor\GameLevel.cpp" />
+    <ClCompile Include="_SOURCE LevelEdditor\LevelController.cpp" />
+    <ClCompile Include="_SOURCE LevelEdditor\LevelOne.cpp" />
+    <ClCompile Include="_SOURCE LevelEdditor\Main.cpp" />
+    <ClCompile Include="_SOURCE LevelEdditor\TilePlacer.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{047BDBF9-3C58-4F8C-A9EF-4519ECE669D2}</ProjectGuid>
+    <RootNamespace>NewProject</RootNamespace>
+    <ProjectName>Game Attempt Level Edditor</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dxguid.lib;dinput8.lib;windowscodecs.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>windowscodecs.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
