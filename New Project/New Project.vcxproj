@@ -18,7 +18,6 @@
     <ClInclude Include="_SOURCE Common\HighPrecisionTimer.h" />
     <ClInclude Include="_SOURCE Common\InputDevice.h" />
     <ClInclude Include="_SOURCE Common\Letters.h" />
-    <ClInclude Include="_SOURCE Common\Sound.h" />
     <ClInclude Include="_SOURCE Common\SpriteSheet.h" />
     <ClInclude Include="_SOURCE Common\Tiles.h" />
     <ClInclude Include="_SOURCE Common\Vectors.h" />
@@ -31,6 +30,7 @@
     <ClInclude Include="_SOURCE Game\MainMenu.h" />
     <ClInclude Include="_SOURCE Game\PauseMenu.h" />
     <ClInclude Include="_SOURCE Game\PlayerCharacter.h" />
+    <ClInclude Include="_SOURCE Game\SoundChili.h" />
     <ClInclude Include="_SOURCE Game\TileManager.h" />
     <ClInclude Include="_SOURCE Game\TransitionMenu.h" />
   </ItemGroup>
@@ -39,7 +39,6 @@
     <ClCompile Include="_SOURCE Common\deathTraps.cpp" />
     <ClCompile Include="_SOURCE Common\Doors.cpp" />
     <ClCompile Include="_SOURCE Common\Letters.cpp" />
-    <ClCompile Include="_SOURCE Common\Sound.cpp" />
     <ClCompile Include="_SOURCE Common\SpriteSheet.cpp" />
     <ClCompile Include="_SOURCE Common\Tiles.cpp" />
     <ClCompile Include="_SOURCE Common\Win32Function.cpp" />
@@ -51,6 +50,7 @@
     <ClCompile Include="_SOURCE Game\MainMenu.cpp" />
     <ClCompile Include="_SOURCE Game\PauseMenu.cpp" />
     <ClCompile Include="_SOURCE Game\PlayerCharacter.cpp" />
+    <ClCompile Include="_SOURCE Game\SoundChili.cpp" />
     <ClCompile Include="_SOURCE Game\TileManager.cpp" />
     <ClCompile Include="_SOURCE Game\TransitionMenu.cpp" />
   </ItemGroup>
@@ -97,7 +97,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -105,7 +108,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>xaudio2.lib;dxguid.lib;dinput8.lib;windowscodecs.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>windowscodecs.lib;xaudio2.lib;d2d1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -1,7 +1,6 @@
 #include "../_SOURCE Game/MainMenu.h"
 
 
-
 void MainMenu::getInput(KeyState keyState)
 {
 	m_prevKeyState = m_keyState;
@@ -80,6 +79,7 @@ void MainMenu::Load()
 	m_prevKeyState = { true, true, true, true, true, true ,true ,true };
 	switchingTrigger = false;
 	play->getSelected(true);
+
 }
 
 void MainMenu::Unload()
