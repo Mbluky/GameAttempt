@@ -15,6 +15,7 @@
 #include "../_SOURCE Game/MainMenu.h"
 #include "../_SOURCE Common/Doors.h"
 #include "../_SOURCE Game/PauseMenu.h"
+#include "../_SOURCE Game/SoundSystem.h"
 
 //Main Function
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -58,6 +59,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	if (!graphics->initD2D(hWnd))return 1;
 
 	SetWindowPos(hWnd, HWND_TOP, 0, 0, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), SWP_FRAMECHANGED);
+
+	SoundSystem::Get();
 
 	TileManager::initGFX(graphics);
 	Phrase::initSprites(graphics);

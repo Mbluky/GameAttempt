@@ -5,7 +5,7 @@
 #include "../_SOURCE Common/Letters.h"
 #include "../_SOURCE Game/KeyboardInput.h"
 #include "../_SOURCE Game/GameLevel.h"
-#include "../_SOURCE Game/SoundChili.h"
+#include "../_SOURCE Game/SoundSystem.h"
 
 class MainMenu : public GameLevel
 {
@@ -15,7 +15,7 @@ class MainMenu : public GameLevel
 	Phrase* option;
 	Phrase* quit;
 	Phrase* gameVersion;
-	Sound MenuMusic;
+	Sound* MenuMusic;
 	int selection;
 	KeyState m_keyState;
 	KeyState m_prevKeyState;

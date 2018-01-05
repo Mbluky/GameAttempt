@@ -30,7 +30,7 @@
     <ClInclude Include="_SOURCE Game\MainMenu.h" />
     <ClInclude Include="_SOURCE Game\PauseMenu.h" />
     <ClInclude Include="_SOURCE Game\PlayerCharacter.h" />
-    <ClInclude Include="_SOURCE Game\SoundChili.h" />
+    <ClInclude Include="_SOURCE Game\SoundSystem.h" />
     <ClInclude Include="_SOURCE Game\TileManager.h" />
     <ClInclude Include="_SOURCE Game\TransitionMenu.h" />
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClCompile Include="_SOURCE Game\MainMenu.cpp" />
     <ClCompile Include="_SOURCE Game\PauseMenu.cpp" />
     <ClCompile Include="_SOURCE Game\PlayerCharacter.cpp" />
-    <ClCompile Include="_SOURCE Game\SoundChili.cpp" />
+    <ClCompile Include="_SOURCE Game\SoundSystem.cpp" />
     <ClCompile Include="_SOURCE Game\TileManager.cpp" />
     <ClCompile Include="_SOURCE Game\TransitionMenu.cpp" />
   </ItemGroup>

@@ -78,7 +78,7 @@
     <ClInclude Include="_SOURCE Game\PauseMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="_SOURCE Game\SoundChili.h">
+    <ClInclude Include="_SOURCE Game\SoundSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,7 +134,7 @@
     <ClCompile Include="_SOURCE Game\PauseMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="_SOURCE Game\SoundChili.cpp">
+    <ClCompile Include="_SOURCE Game\SoundSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,6 @@
 #include "../_SOURCE Game/MainMenu.h"
+#include <tchar.h>
+#include <Windows.h>
 
 
 void MainMenu::getInput(KeyState keyState)
@@ -61,6 +63,7 @@ void MainMenu::Update()
 		}
 		if( selection == 2)
 		{
+			Unload();
 			exit(EXIT_SUCCESS);
 		}
 	}
@@ -80,6 +83,12 @@ void MainMenu::Load()
 	switchingTrigger = false;
 	play->getSelected(true);
 
+	TCHAR * fileName = _TEXT("Funky.wav");
+
+	MenuMusic = new Sound(fileName);
+
+	MenuMusic->Play(1.0f, 0.5f);
+
 }
 
 void MainMenu::Unload()
@@ -89,6 +98,7 @@ void MainMenu::Unload()
 	delete play;
 	delete option;
 	delete quit;
+	delete MenuMusic;
 }
 
 void MainMenu::Render()
