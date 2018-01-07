@@ -26,6 +26,8 @@ public:
 
 	static void update();
 	static void render();
+
+	static void updateStage(unsigned int world,unsigned int level);
 };
 
 #endif //LEVEL_CONTROLLER_H

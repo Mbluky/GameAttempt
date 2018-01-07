@@ -83,3 +83,10 @@ void LevelController::render()
 {
 	CurentLevel->Render();
 }
+
+void LevelController::updateStage(unsigned int world, unsigned int level)
+{
+	m_curentWorld = world;
+	m_curentLevel = level;
+}
+

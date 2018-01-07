@@ -15,11 +15,16 @@ class MainMenu : public GameLevel
 	Phrase* option;
 	Phrase* quit;
 	Phrase* gameVersion;
+	Phrase* WorldList[10];
+	Phrase* LevelList[10];
 	Sound* MenuMusic;
-	int selection;
+	unsigned int selection;
+	unsigned int subMenu;
+	unsigned int selectedWorld = 0;
+	bool ulockedLevels[99];
+	bool switchingTrigger = false;
 	KeyState m_keyState;
 	KeyState m_prevKeyState;
-	bool switchingTrigger = false;
 public:
 	void Load() override;
 	void Unload() override;
