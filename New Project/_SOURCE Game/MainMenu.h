@@ -21,7 +21,7 @@ class MainMenu : public GameLevel
 	unsigned int selection;
 	unsigned int subMenu;
 	unsigned int selectedWorld = 0;
-	bool ulockedLevels[99];
+	bool unlockedLevels[10][10];
 	bool switchingTrigger = false;
 	KeyState m_keyState;
 	KeyState m_prevKeyState;

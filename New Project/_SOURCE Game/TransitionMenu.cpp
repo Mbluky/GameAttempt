@@ -5,6 +5,7 @@ int T_Menu::m_Level = 0;
 
 void T_Menu::Load()
 {
+	loadNextStage = false;
 	m_keyState = { false, false, false, false, false, false, false, false };
 	m_prevKeyState = m_keyState;
 	countDown = 180;
@@ -12,8 +13,8 @@ void T_Menu::Load()
 	sLevelName += std::to_string(m_World + 1);
 	sLevelName += '-';
 	sLevelName += std::to_string(m_Level + 1);
-	levelName = new Phrase(sLevelName, 300, 300, 8);
-	clear = new Phrase("Clear", 300, 380, 8);
+	levelName = new Phrase(sLevelName, 520, 324, 4);
+	clear = new Phrase("Clear", 520, 360, 4);
 }
 
 void T_Menu::Unload()
@@ -28,7 +29,6 @@ void T_Menu::Update()
 	if(countDown <= 0)
 	{
 		loadNextStage = true;
-		countDown = 180;
 	}
 }
 

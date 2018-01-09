@@ -108,11 +108,14 @@ void MainMenu::Update()
 		}
 		else if (m_keyState.jump && !m_prevKeyState.jump)
 		{
-			selectedWorld = selection;
-			WorldList[selection]->getSelected(false);
-			LevelList[0]->getSelected(true);
-			selection = 0;
-			subMenu = 2;
+			if (unlockedLevels[selection][0] == true)
+			{
+				selectedWorld = selection;
+				WorldList[selection]->getSelected(false);
+				LevelList[0]->getSelected(true);
+				selection = 0;
+				subMenu = 2;
+			}
 		}
 	}
 	else if (subMenu == 2)
@@ -146,8 +149,11 @@ void MainMenu::Update()
 			}
 		}else if(m_keyState.jump && !m_prevKeyState.jump)
 		{
-			LevelController::updateStage(selectedWorld, selection);
-			switchingTrigger = true;
+			if (unlockedLevels[selectedWorld][selection]) 
+			{
+				LevelController::updateStage(selectedWorld, selection);
+				switchingTrigger = true;
+			}
 		}
 	}
 }
@@ -186,12 +192,64 @@ void MainMenu::Load()
 	switchingTrigger = false;
 	play->getSelected(true);
 
+	
+	int x = 0, y = 0;
+	while(y < 10)
+	{
+		while(x<10)
+		{
+			unlockedLevels[x][y] = false;
+			x++;
+		}
+		y++;
+	}
+	int lastUnlockedStage;
+	unlockedLevels[0][0] = true;
+	string saveFileLocation("Save//Save.txt");
+	ifstream saveFile;
+	saveFile.open(saveFileLocation.c_str());
+	if(!saveFile)
+	{
+		saveFile.close();
+		ofstream saveFileOut(saveFileLocation.c_str());
+		saveFileOut.clear();
+		saveFileOut << "0" << endl;
+		saveFileOut.close();
+	}else
+	{
+		saveFile >> lastUnlockedStage;
+		saveFile.close();
+	}
+	
+	int lastUnlockedWorld;
+	int lastUnlockedLevelIndex;
+
+	lastUnlockedWorld = ((int)(lastUnlockedStage / 10));
+	lastUnlockedLevelIndex = lastUnlockedStage - (lastUnlockedWorld * 10);
+
+	for (int w = 0; w <= lastUnlockedWorld; w++)
+	{
+		if (w == lastUnlockedWorld) 
+		{
+			for (int l = 0; l <= lastUnlockedLevelIndex; l++)
+			{
+				unlockedLevels[w][l] = true;
+			}
+		}
+		else
+		{
+			for (int l = 0; l < 10; l++)
+			{
+				unlockedLevels[w][l] = true;
+			}
+		}
+	}
+
 	TCHAR * fileName = _TEXT("Funky.wav");
 
 	MenuMusic = new Sound(fileName);
 
 	MenuMusic->Play(1.0f, 0.5f);
-
 }
 
 void MainMenu::Unload()

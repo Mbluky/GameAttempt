@@ -67,7 +67,24 @@ void LevelOne::getInput(KeyState keystate)
 
 bool LevelOne::switchToOther()
 {
-	return PlayerOne->endCurentStage();
+	if (PlayerOne->endCurentStage())
+	{
+		ifstream saveFile("Save//Save.txt");
+		int lastUnlockedStage;
+		saveFile >> lastUnlockedStage;
+		if(((world * 10) + level+1) > lastUnlockedStage)
+		{
+			saveFile.close();
+			ofstream saveFileOut("Save//Save.txt");
+			saveFileOut.clear();
+			lastUnlockedStage = ((world * 10) + level + 1);
+			saveFileOut << lastUnlockedStage;
+			saveFileOut.close();
+		}
+		saveFile.close();
+	}
+	else
+		return false;
 }
 
 void LevelOne::getCurrentLevel(int currentWorld, int currentLevel)
