@@ -50,6 +50,19 @@ void TilePlacer::initStageTiles()
 		y = 0;
 		x++;
 	}
+	x = 0;
+	y = 0;
+
+	while (x <= 29)
+	{
+		while (y <= 16)
+		{
+			wallTraps[x][y] = NULL;
+			y++;
+		}
+		y = 0;
+		x++;
+	}
 
 }
 
@@ -128,6 +141,10 @@ void TilePlacer::placeTile()
 	{
 		stageDoor = new Door(posX, posY);
 	}
+	else if(curentMode == 3)
+	{
+		wallTraps[(int)posX / 44][(int)posY / 44] = new WallCannon(posX, posY, curentTile);
+	}
 }
  void TilePlacer::removeTile()
  {
@@ -141,24 +158,41 @@ void TilePlacer::placeTile()
 	 {
 		 stageDoor = NULL;
 	 }
+	 else if(curentMode == 3)
+	 {
+		 wallTraps[(int)posX / 44][(int)posY / 44] = NULL;
+	 }
  }
 
 void TilePlacer::changeTile()
 {
-	if(keyState.nextTile && !prevKeyState.nextTile)
+	if (curentMode == 0 || curentMode == 1) 
 	{
-		curentTile++;
-		if(curentTile>15)
+		if (keyState.nextTile && !prevKeyState.nextTile)
 		{
-			curentTile = 0;
+			curentTile++;
+			if (curentTile > 15)
+			{
+				curentTile = 0;
+			}
 		}
-	}
-	else if (keyState.previousTile && !prevKeyState.previousTile)
-	{
-		curentTile--;
-		if(curentTile<0)
+		else if (keyState.previousTile && !prevKeyState.previousTile)
 		{
-			curentTile = 15;
+			curentTile--;
+			if (curentTile < 0)
+			{
+				curentTile = 15;
+			}
+		}
+	}else if(curentMode == 3)
+	{
+		if (keyState.nextTile && !prevKeyState.nextTile)
+		{
+			curentTile++;
+			if (curentTile > 4)
+			{
+				curentTile = 0;
+			}
 		}
 	}
 }
@@ -195,10 +229,29 @@ void TilePlacer::drawStageTiles()
 		y = 0;
 		x++;
 	}
+
+	x = 0;
+	y = 0;
+
+	while (x <= 29)
+	{
+		while (y <= 16)
+		{
+			if (wallTraps[x][y] != NULL)
+			{
+				wallTraps[x][y]->draw();
+			}
+			y++;
+		}
+		y = 0;
+		x++;
+	}
+
 	if (stageDoor != NULL)
 	{
 		stageDoor->draw();
 	}
+	
 }
 
 void TilePlacer::draw()
@@ -286,6 +339,25 @@ void TilePlacer::Save()
 		levelFile << 1 << " " <<
 			stageDoor->getPositionX() << " " <<
 			stageDoor->getPositionY() <<endl;
+	}
+	while (y < 17)
+	{
+		while (x < 30)
+		{
+			if (stageSpikes[x][y] == NULL)
+			{
+				levelFile << 0 << endl;
+			}
+			else
+			{
+				levelFile << 1 << " " <<
+					wallTraps[x][y]->getTrapPositionX() << " " <<
+					wallTraps[x][y]->getTrapPositionX() << " " <<
+					wallTraps[x][y]->getCurrentAnimation() << endl;
+			}
+			x++;
+		}
+		y++;
 	}
 }
 

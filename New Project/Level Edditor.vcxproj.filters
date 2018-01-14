@@ -98,6 +98,12 @@
     <Image Include="_SOURCE Assets\Default Door.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="_SOURCE Assets\WallArrows.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="_SOURCE Assets\WallTraps.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_SOURCE Common\D2DGraphics.cpp">

@@ -11,7 +11,7 @@ class TilePlacer
 	float posX, posY;
 	int curentTile, curentMode;
 	bool justMoved;
-	int moveCountDown, curentSpriteSheet, maxModes = 2;
+	int moveCountDown, curentSpriteSheet, maxModes = 3;
 	wchar_t* TileSpriteSheets[2];
 	defaultTile* StageTiles [30][17];
 	E_KeyState prevKeyState;
@@ -20,6 +20,7 @@ class TilePlacer
 	SpriteSheet* TilePlacerCursor, *curentTileSet, *curentspikeSprites;
 	D2DGraphics* gfx;
 	Spikes* stageSpikes[30][17];
+	WallCannon* wallTraps[30][17];
 	Door* stageDoor;
 public:
 	TilePlacer();

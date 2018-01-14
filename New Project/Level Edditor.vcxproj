@@ -40,6 +40,8 @@
     <Image Include="_SOURCE Assets\Spikes.png" />
     <Image Include="_SOURCE Assets\spriteSheet 0.2 flipped.png" />
     <Image Include="_SOURCE Assets\spriteSheet 0.2.png" />
+    <Image Include="_SOURCE Assets\WallArrows.png" />
+    <Image Include="_SOURCE Assets\WallTraps.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_SOURCE Common\D2DGraphics.cpp" />
