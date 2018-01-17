@@ -86,6 +86,8 @@ public:
 	float getTrapPositionY();
 	void update();
 	void shoot();
+	bool isShot();
+	void destroyArrow();
 };
 
 #endif // !DEATH_TRAPS_H

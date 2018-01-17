@@ -62,11 +62,6 @@ public:
 		return d / ticksPerFrame;
 	}
 	
-	int getFramerate() 
-	{
-		return currentCallToUpdate - lastCallToUpdate;
-	}
-
 	void waitForFrame() 
 	{
 		frameCounter = 0;

@@ -5,6 +5,7 @@ using namespace std;
 
 defaultTile* TileManager::stageTiles[30][17];
 Spikes* TileManager::stageSpikes[30][17];
+WallCannon* TileManager::wallTraps[30][17];
 D2DGraphics* TileManager::gfx;
 SpriteSheet* TileManager::WorldSpriteSheets[10];
 Door* TileManager::stageDoor = NULL;
@@ -148,6 +149,24 @@ void TileManager::drawTiles()
 		x = 0;
 		y++;
 	}
+
+	x = 0;
+	y = 0;
+
+	while (y<17)
+	{
+		while (x<30)
+		{
+			if (wallTraps[x][y] != NULL)
+			{
+				wallTraps[x][y]->draw();
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+
 	if(stageDoor != NULL)
 	{
 		stageDoor->draw();
@@ -166,7 +185,7 @@ void TileManager::checkColition(PlayerCharacter * P1)
 	{
 		while (x < 30)
 		{
-			if (stageTiles[x][y] != NULL && stageTiles[x][y]->getInternal() == false)
+			if (stageTiles[x][y] != NULL && !stageTiles[x][y]->getInternal())
 			{
 				float deltaX = (stageTiles[x][y]->getColitionData()[0] - P1->getColitionData()[0]);
 				float deltaY = (stageTiles[x][y]->getColitionData()[1] - P1->getColitionData()[1]);
@@ -261,6 +280,35 @@ void TileManager::checkColition(PlayerCharacter * P1)
 		y++;
 
 	}
+	x = 0;
+	y = 0;
+	while (y < 17)
+	{
+		while (x < 30)
+		{
+			if (wallTraps[x][y] != NULL && wallTraps[x][y]->isShot())
+			{
+				float deltaX = (wallTraps[x][y]->getColitionData()[0] - P1->getColitionData()[0]);
+				float deltaY = (wallTraps[x][y]->getColitionData()[1] - P1->getColitionData()[1]);
+
+				float colitionX = (abs(deltaX) - (wallTraps[x][y]->getColitionData()[2] / 2 + P1->getColitionData()[2] / 2));
+				float colitionY = (abs(deltaY) - (wallTraps[x][y]->getColitionData()[3] / 2 + P1->getColitionData()[3] / 2));
+
+				if (colitionX < 0 && colitionY < 0)
+				{
+					P1->die();
+					isDead = true;
+					wallTraps[x][y]->destroyArrow();
+				}
+			}
+			x++;
+
+		}
+		x = 0;
+		y++;
+
+	}
+
 	if(!isDead)
 	{
 		if (!isOnTheGround)
@@ -268,6 +316,44 @@ void TileManager::checkColition(PlayerCharacter * P1)
 			P1->checkState();
 		}
 		P1->chackWallColition(isHittingWall);
+	}
+}
+
+void TileManager::update()
+{
+	for (unsigned int y = 0; y < 17; y++)
+	{
+		for (unsigned int x = 0; x < 30; x++)
+		{
+			if(wallTraps[x][y] != NULL)
+			{
+				wallTraps[x][y]->shoot();
+				wallTraps[x][y]->update();
+				for (unsigned int y1 = 0; y1 < 17; y1++)
+				{
+					for (unsigned int x1 = 0; x1 < 30; x1++)
+					{
+						if (stageTiles[x1][y1] != NULL && !stageTiles[x1][y1]->getInternal())
+						{
+							float deltaX = (stageTiles[x1][y1]->getColitionData()[0] - wallTraps[x][y]->getColitionData()[0]);
+							float deltaY = (stageTiles[x1][y1]->getColitionData()[1] - wallTraps[x][y]->getColitionData()[1]);
+
+							float colitionX = (abs(deltaX) - (stageTiles[x1][y1]->getColitionData()[2] / 2 + wallTraps[x][y]->getColitionData()[2] / 2));
+							float colitionY = (abs(deltaY) - (stageTiles[x1][y1]->getColitionData()[3] / 2 + wallTraps[x][y]->getColitionData()[3] / 2));
+
+							if (colitionX < 0 && colitionY < 0)
+							{
+								if (x != x1 || y != y1)
+								{
+									wallTraps[x][y]->destroyArrow();
+								}									
+							}
+						}
+					
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -329,6 +415,31 @@ void TileManager::loadStageTiles(int currentWorld, int currentLevel)
 		x = 0;
 		y++;
 	}
+	x = 0;
+	y = 0;
+	while (y<17)
+	{
+		while (x < 30)
+		{
+			LevelFile >> isEmpty;
+			if (isEmpty == 0)
+			{
+				wallTraps[x][y] = NULL;
+			}
+			else
+			{
+				LevelFile >> posX;
+				LevelFile >> posY;
+				LevelFile >> sprite;
+
+				wallTraps[x][y] = new WallCannon((float)posX, (float)posY, sprite);
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+
 	LevelFile >> isEmpty;
 	if(isEmpty == 0)
 	{

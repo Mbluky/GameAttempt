@@ -22,7 +22,7 @@ bool D2DGraphics::initD2D(HWND wHandle)
 	GetClientRect(wHandle, &rect);
 	
 	res = factory->CreateHwndRenderTarget(D2D1::RenderTargetProperties(), 
-									D2D1::HwndRenderTargetProperties(wHandle,D2D1::SizeU(rect.right - rect.left, rect.bottom - rect.top)),  
+									D2D1::HwndRenderTargetProperties(wHandle,D2D1::SizeU(rect.right - rect.left, rect.bottom - rect.top), D2D1_PRESENT_OPTIONS_IMMEDIATELY),
 									&renderTarget);
 	if (res != S_OK) return false;
 

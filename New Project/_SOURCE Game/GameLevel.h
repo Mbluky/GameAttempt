@@ -3,7 +3,6 @@
 
 #include "../_SOURCE Common/D2DGraphics.h"
 #include "../_SOURCE Game/PlayerCharacter.h"
-#include "../_SOURCE Common/SpriteSheet.h"
 
 class GameLevel
 {

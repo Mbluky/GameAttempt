@@ -189,9 +189,16 @@ void TilePlacer::changeTile()
 		if (keyState.nextTile && !prevKeyState.nextTile)
 		{
 			curentTile++;
-			if (curentTile > 4)
+			if (curentTile > 3)
 			{
 				curentTile = 0;
+			}
+		}else if(keyState.previousTile && !prevKeyState.previousTile)
+		{
+			curentTile--;
+			if (curentTile < 0)
+			{
+				curentTile = 3;
 			}
 		}
 	}
@@ -331,6 +338,31 @@ void TilePlacer::Save()
 		y++;
 		x = 0;
 	}
+
+	x = 0;
+	y = 0;
+
+	while (y < 17)
+	{
+		while (x < 30)
+		{
+			if (wallTraps[x][y] == NULL)
+			{
+				levelFile << 0 << endl;
+			}
+			else
+			{
+				levelFile << 1 << " " <<
+					wallTraps[x][y]->getTrapPositionX() << " " <<
+					wallTraps[x][y]->getTrapPositionY() << " " <<
+					wallTraps[x][y]->getCurrentAnimation() << endl;
+			}
+			x++;
+		}
+		y++;
+		x = 0;
+	}
+
 	if (stageDoor == NULL)
 	{
 		levelFile << 0 << endl;
@@ -340,26 +372,9 @@ void TilePlacer::Save()
 			stageDoor->getPositionX() << " " <<
 			stageDoor->getPositionY() <<endl;
 	}
-	while (y < 17)
-	{
-		while (x < 30)
-		{
-			if (stageSpikes[x][y] == NULL)
-			{
-				levelFile << 0 << endl;
-			}
-			else
-			{
-				levelFile << 1 << " " <<
-					wallTraps[x][y]->getTrapPositionX() << " " <<
-					wallTraps[x][y]->getTrapPositionX() << " " <<
-					wallTraps[x][y]->getCurrentAnimation() << endl;
-			}
-			x++;
-		}
-		y++;
-	}
+
 }
+
 
 void TilePlacer::switchTileSet()
 {

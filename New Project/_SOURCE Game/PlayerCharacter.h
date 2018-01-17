@@ -6,9 +6,6 @@
 #include "../_SOURCE Common/SpriteSheet.h"
 #include "../_SOURCE Game/KeyboardInput.h"
 
-
-
-
 class PlayerCharacter : public Character 
 {
 	ANIMATION defaultAnimation;
@@ -26,6 +23,7 @@ class PlayerCharacter : public Character
 	int curentAnimationIndex;
 	float colitionData[4] = {0 , 0 , 44, 72};
 	bool facingRight;
+	bool isRunning = false;
 	int thought = 0;
 	
 public:
@@ -36,7 +34,7 @@ public:
 	void update() override;
 	void draw() override;
 	void move(int direction = 0);
-	void run();
+	void run(int direction = 0);
 	void push(bool onXAxis, float pushLevel);
 	void jump();
 	void die();
@@ -51,7 +49,6 @@ public:
 	void drop();
 	void reciveThought(int rThought);
 	bool endCurentStage();
-
 };
 
 #endif //PLAYER_CHARACTER_H

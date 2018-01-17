@@ -1,6 +1,7 @@
 #include <assert.h>
 
 #include "../_SOURCE Game/SoundSystem.h"
+#pragma comment (lib, "xaudio2.lib")
 
 SoundSystem& SoundSystem::Get()
 {

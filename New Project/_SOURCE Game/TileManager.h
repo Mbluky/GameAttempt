@@ -10,6 +10,7 @@ class TileManager
 {
 	static defaultTile* stageTiles[30][17];
 	static Spikes* stageSpikes[30][17];
+	static WallCannon* wallTraps[30][17];
 	static const string levelList[10][10];
 	static SpriteSheet* WorldSpriteSheets[10];
 	static D2DGraphics* gfx;
@@ -21,6 +22,7 @@ class TileManager
 public:
 	static void drawTiles();
 	static void checkColition(PlayerCharacter* P1);
+	static void update();
 
 	static void loadStageTiles(int currentWorld, int currentLevel);
 	static void initGFX(D2DGraphics* _gfx);

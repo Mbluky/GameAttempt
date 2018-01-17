@@ -180,26 +180,39 @@ void WallCannon::initSpriteSheet()
 void WallCannon::draw()
 {
 	sprites->Draw(1, currentAnimation, pos_x, pos_y);
+	if(m_arrow != NULL)
+	{
+		m_arrow->draw();
+	}
 }
 
 float WallCannon::getPositionX()
 {
-	return m_arrow->getPositionX();
+	if (m_arrow != NULL)
+	{
+		return m_arrow->getPositionX();
+	}
 }
 
 float WallCannon::getPositionY()
 {
-	return m_arrow->getPositionY();
+	if(m_arrow != NULL)
+	{
+		return m_arrow->getPositionY();
+	}
 }
 
 float * WallCannon::getColitionData()
 {
-	return m_arrow->getColitionData();
+	if (m_arrow != NULL) 
+	{
+		return m_arrow->getColitionData();
+	}
 }
 
 int WallCannon::getCurrentAnimation()
 {
-	return m_arrow->getCurrentAnimation();
+	return animationIndex;
 }
 
 float WallCannon::getTrapPositionX()
@@ -215,26 +228,45 @@ float WallCannon::getTrapPositionY()
 
 void WallCannon::update()
 {
-	m_arrow->update();
+	if (m_arrow != NULL)
+	{
+		m_arrow->update();
+	}
 }
 
 void WallCannon::shoot()
 {
-	switch (animationIndex)
+	if (!isShot())
 	{
-	case 0:
-		m_arrow = new WallArrow(pos_x, pos_y + 16, animationIndex);
-		break;
-	case 1:
-		m_arrow = new WallArrow(pos_x + 16, pos_y, animationIndex);
-		break;
-	case 2:
-		m_arrow = new WallArrow(pos_x + 16, pos_y + 16, animationIndex);
-		break;
-	case 3:
-		m_arrow = new WallArrow(pos_x + 16, pos_y - 16, animationIndex);
-		break;
+		switch (animationIndex)
+		{
+		case 0:
+			m_arrow = new WallArrow(pos_x, pos_y + 16, animationIndex);
+			break;
+		case 1:
+			m_arrow = new WallArrow(pos_x + 16, pos_y, animationIndex);
+			break;
+		case 2:
+			m_arrow = new WallArrow(pos_x + 16, pos_y + 16, animationIndex);
+			break;
+		case 3:
+			m_arrow = new WallArrow(pos_x + 16, pos_y - 16, animationIndex);
+			break;
+		}
 	}
+}
+
+bool WallCannon::isShot()
+{
+	if (m_arrow != NULL) { return true; }
+
+	return false;
+}
+
+void WallCannon::destroyArrow()
+{
+	delete m_arrow;
+	m_arrow = NULL;
 }
 
 WallCannon::WallArrow::WallArrow(int x, int y, unsigned int direction)

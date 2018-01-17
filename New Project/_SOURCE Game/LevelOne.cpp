@@ -27,6 +27,7 @@ void LevelOne::Update()
 	{
 		PlayerOne->update();
 		TileManager::checkColition(PlayerOne);
+		TileManager::update();
 	}else
 	{
 		if(quitToMenu)
@@ -38,7 +39,7 @@ void LevelOne::Update()
 
 void LevelOne::Render()
 {
-	gfx->clearScreen(0.05f, 0.05f, 0.07f);
+	gfx->clearScreen(0.2f, 0.2f, 0.25f);
 	TileManager::drawTiles();
 	PlayerOne->draw();
 	if(isPaused)

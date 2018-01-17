@@ -73,7 +73,6 @@ void LevelController::update()
 		CurentLevel = Levels[levelIndex];
 		CurentLevel->Load();
 	}
-	Timer->update();
 	CurentLevel->getInput(keyboard->getInputState());
 	CurentLevel->Update();
 	Timer->waitForFrame();

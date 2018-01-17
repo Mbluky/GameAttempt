@@ -93,7 +93,20 @@ void PlayerCharacter::move(int direction)
 	else if (direction == 0)
 	{
 		xVelocity = 0;
-		defaultAnimation;
+	}
+}
+
+void PlayerCharacter::run(int direction)
+{
+	if(direction == 0)
+	{
+		xVelocity = 0;
+	}else if(direction == 1)
+	{
+		xVelocity = 10;	
+	}else if(direction == 2)
+	{
+		xVelocity = -10;
 	}
 }
 
@@ -134,20 +147,44 @@ void PlayerCharacter::checkKeyPress(KeyState keyState)
 	m_keystate = keyState;
 	if(keyState.right && !keyState.left)
 	{
-		move(1);
-		if (state == 0)
+		if(keyState.run)
 		{
-			switchAnimation(1);
-			facingRight = true;
+			run(1);
+			if(state == 0)
+			{
+				switchAnimation(1);
+				facingRight = true;
+			}
+		}
+		else 
+		{
+			move(1);
+			if (state == 0)
+			{
+				switchAnimation(1);
+				facingRight = true;
+			}
 		}
 	}
 	else if (keyState.left && !keyState.right)
 	{
-		move(2);
-		if (state == 0)
+		if (keyState.run)
 		{
-			switchAnimation(1);
-			facingRight = false;
+			run(2);
+			if (state == 0)
+			{
+				switchAnimation(1);
+				facingRight = false;
+			}
+		}
+		else
+		{
+			move(2);
+			if (state == 0)
+			{
+				switchAnimation(1);
+				facingRight = false;
+			}
 		}
 	}
 	else 
@@ -190,14 +227,7 @@ void PlayerCharacter::fall()
 {
 	if(state == 1)
 	{
-		if (yVelocity < 20.16)
-		{
-			yVelocity += 1;
-		}
-		if( yVelocity > 20.16)
-		{
-			yVelocity = 20.16;
-		}
+		yVelocity += 1;
 	}
 }
 
