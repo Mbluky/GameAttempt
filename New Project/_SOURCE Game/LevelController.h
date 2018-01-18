@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef LEVEL_CONTROLLER_H
 #define LEVEL_CONTROLLER_H
 
@@ -31,3 +33,4 @@ public:
 };
 
 #endif //LEVEL_CONTROLLER_H
+#endif //LEVELEDDITOR

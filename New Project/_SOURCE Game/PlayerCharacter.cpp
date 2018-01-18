@@ -52,6 +52,14 @@ void PlayerCharacter::update()
 	{
 		frameCounter++;
 	}
+	if (positionX > 1290 || positionX < -60)
+	{
+		die();
+	}
+	if(positionY > 730 || positionY < -100)
+	{
+		die();
+	}
 }
 
 void PlayerCharacter::draw()

@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef MAIN_MENU_H
 #define MAIN_MENU_H
 
@@ -35,3 +37,4 @@ public:
 };
 
 #endif // !MAIN_MENU_H
+#endif //LEVELEDDITOR

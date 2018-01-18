@@ -1,3 +1,5 @@
+#define GAME
+
 #include <windows.h>
 #include <windowsx.h>
 #include <WinUser.h>

@@ -66,6 +66,9 @@
     <ClInclude Include="_SOURCE Common\Doors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="_SOURCE LevelEdditor\PlayerSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="_SOURCE Assets\Cursor.png">

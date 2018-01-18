@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef GAME_LEVEL_H
 #define GAME_LEVEL_H
 
@@ -27,4 +29,6 @@ public:
 	bool virtual switchToOther() = 0;
 };
 
-#endif
+#endif // !GAME_LEVEL_H
+
+#endif // !LEVELEDDITOR

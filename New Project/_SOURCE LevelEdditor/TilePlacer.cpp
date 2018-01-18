@@ -63,7 +63,7 @@ void TilePlacer::initStageTiles()
 		y = 0;
 		x++;
 	}
-
+	playerOne = NULL;
 }
 
 void TilePlacer::getInput(E_KeyState keyState_)
@@ -145,6 +145,10 @@ void TilePlacer::placeTile()
 	{
 		wallTraps[(int)posX / 44][(int)posY / 44] = new WallCannon(posX, posY, curentTile);
 	}
+	else if (curentMode == 4)
+	{
+		playerOne = new P1(posX / 44, posY / 44);
+	}
 }
  void TilePlacer::removeTile()
  {
@@ -161,6 +165,14 @@ void TilePlacer::placeTile()
 	 else if(curentMode == 3)
 	 {
 		 wallTraps[(int)posX / 44][(int)posY / 44] = NULL;
+	 }
+	 else if (curentMode == 4)
+	 {
+		 if (playerOne != NULL) 
+		 {
+			 delete playerOne;
+			 playerOne = NULL;
+		 }
 	 }
  }
 
@@ -257,6 +269,11 @@ void TilePlacer::drawStageTiles()
 	if (stageDoor != NULL)
 	{
 		stageDoor->draw();
+	}
+
+	if(playerOne != NULL)
+	{
+		playerOne->draw();
 	}
 	
 }
@@ -373,6 +390,13 @@ void TilePlacer::Save()
 			stageDoor->getPositionY() <<endl;
 	}
 
+	if(playerOne == NULL)
+	{
+		levelFile << 0 << endl;
+	}else
+	{
+		levelFile << 1 << " " << playerOne->getPosX() << " " << playerOne->getPosY() << endl;
+	}
 }
 
 

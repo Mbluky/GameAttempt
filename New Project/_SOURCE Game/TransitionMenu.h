@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef TRANSITION_MENU_H
 #define TRANSITION_MENU_H
 
@@ -24,3 +26,4 @@ public:
 };
 
 #endif // !TRANSITION_MENU_H
+#endif //LEVELEDDITOR

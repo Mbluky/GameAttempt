@@ -5,13 +5,14 @@
 #include "../_SOURCE LevelEdditor/KeyboardInput.h"
 #include "../_SOURCE Common/deathTraps.h"
 #include "../_SOURCE Common/Doors.h"
+#include "../_SOURCE LevelEdditor/PlayerSprite.h"
 
 class TilePlacer
 {
 	float posX, posY;
 	int curentTile, curentMode;
 	bool justMoved;
-	int moveCountDown, curentSpriteSheet, maxModes = 3;
+	int moveCountDown, curentSpriteSheet, maxModes = 4;
 	wchar_t* TileSpriteSheets[2];
 	defaultTile* StageTiles [30][17];
 	E_KeyState prevKeyState;
@@ -22,6 +23,7 @@ class TilePlacer
 	Spikes* stageSpikes[30][17];
 	WallCannon* wallTraps[30][17];
 	Door* stageDoor;
+	P1* playerOne;
 public:
 	TilePlacer();
 	~TilePlacer();

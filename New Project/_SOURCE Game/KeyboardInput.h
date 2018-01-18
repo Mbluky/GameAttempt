@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef KEYBOARD_INPUT_H
 #define KEYBOARD_INPUT_H
 
@@ -44,4 +46,5 @@ public:
 
 };
 
-#endif //KEYBOARD_INPUT_H
+#endif //!KEYBOARD_INPUT_H
+#endif //LEVELEDDITOR

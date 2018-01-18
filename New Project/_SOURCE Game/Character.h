@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
@@ -17,3 +19,5 @@ public:
 };
 
 #endif //CHARACTER_H
+
+#endif //LEVELEDDITOR

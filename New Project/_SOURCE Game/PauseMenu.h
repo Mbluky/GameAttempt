@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef PAUSE_MANU_HEADER
 #define PAUSE_MENU_HEADER
 
@@ -27,3 +29,4 @@ public:
 };
 
 #endif // !PAUSE_MANU_HEADER
+#endif //LEVELEDDITOR

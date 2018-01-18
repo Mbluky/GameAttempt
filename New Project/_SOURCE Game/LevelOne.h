@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef LEVEL_ONE_HEADER
 #define LEVEL_ONE_HEADER
 
@@ -26,3 +28,4 @@ public:
 
 };
 #endif //LEVEL_ONE_HEADER
+#endif //LEVELEDDITOR

@@ -1,3 +1,5 @@
+#ifndef LEVELEDDITOR
+
 #ifndef PLAYER_CHARACTER_H
 #define PLAYER_CHARACTER_H
 
@@ -52,3 +54,4 @@ public:
 };
 
 #endif //PLAYER_CHARACTER_H
+#endif //LEVELEDDITOR

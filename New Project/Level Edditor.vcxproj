@@ -26,6 +26,7 @@
     <ClInclude Include="_SOURCE LevelEdditor\KeyboardInput.h" />
     <ClInclude Include="_SOURCE LevelEdditor\LevelController.h" />
     <ClInclude Include="_SOURCE LevelEdditor\LevelOne.h" />
+    <ClInclude Include="_SOURCE LevelEdditor\PlayerSprite.h" />
     <ClInclude Include="_SOURCE LevelEdditor\tilemanager.h" />
     <ClInclude Include="_SOURCE LevelEdditor\TilePlacer.h" />
   </ItemGroup>
