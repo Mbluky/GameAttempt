@@ -39,6 +39,7 @@ void MainMenu::Update()
 				selection--;
 				option->getSelected(true);
 			}
+			Change->Play(1.0, 0.5);
 		}
 		else if (m_keyState.down && !m_prevKeyState.down)
 		{
@@ -60,9 +61,11 @@ void MainMenu::Update()
 				selection++;
 				option->getSelected(true);
 			}
+			Change->Play(1.0f, 0.5f);
 		}
 		if (m_keyState.jump && !m_prevKeyState.jump)
 		{
+			Accept->Play(1.0f, 0.5f);
 			if (selection == 0)
 			{
 				selection = 0;
@@ -91,6 +94,7 @@ void MainMenu::Update()
 				selection++;
 				WorldList[selection]->getSelected(true);
 			}
+			Change->Play(1.0f, 0.5f);
 		}
 		else if (m_keyState.up && !m_prevKeyState.up)
 		{
@@ -105,6 +109,7 @@ void MainMenu::Update()
 				selection--;
 				WorldList[selection]->getSelected(true);
 			}
+			Change->Play(1.0f, 0.5f);
 		}
 		else if (m_keyState.jump && !m_prevKeyState.jump)
 		{
@@ -115,6 +120,7 @@ void MainMenu::Update()
 				LevelList[0]->getSelected(true);
 				selection = 0;
 				subMenu = 2;
+				Accept->Play(1.0f, 0.5f);
 			}
 		}
 	}
@@ -133,6 +139,7 @@ void MainMenu::Update()
 				selection++;
 				LevelList[selection]->getSelected(true);
 			}
+			Change->Play(1.0f, 0.5f);
 		}
 		else if (m_keyState.up && !m_prevKeyState.up)
 		{
@@ -147,10 +154,12 @@ void MainMenu::Update()
 				selection--;
 				LevelList[selection]->getSelected(true);
 			}
+			Change->Play(1.0f, 0.5f);
 		}else if(m_keyState.jump && !m_prevKeyState.jump)
 		{
 			if (unlockedLevels[selectedWorld][selection]) 
 			{
+				Accept->Play(1.0f, 0.5f);
 				LevelController::updateStage(selectedWorld, selection);
 				switchingTrigger = true;
 			}
@@ -245,9 +254,17 @@ void MainMenu::Load()
 		}
 	}
 
-	TCHAR * fileName = _TEXT("Funky.wav");
-
+	TCHAR * fileName = _TEXT("_SOURCE Sound//Funky.wav");
 	MenuMusic = new Sound(fileName);
+
+	fileName = _TEXT("_SOURCE Sound//Change.wav");
+	Change = new Sound(fileName);
+	
+	fileName = _TEXT("_SOURCE Sound//accept.wav");
+	Accept = new Sound(fileName);
+
+	fileName = _TEXT("_SOURCE Sound//back.wav");
+	Back = new Sound(fileName);
 
 	MenuMusic->Play(1.0f, 0.5f);
 }
@@ -260,6 +277,9 @@ void MainMenu::Unload()
 	delete option;
 	delete quit;
 	delete MenuMusic;
+	delete Change;
+	delete Accept;
+	delete Back;
 	for (int i = 0; i < 10; i++)
 	{
 		delete WorldList[i];

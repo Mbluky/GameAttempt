@@ -9,8 +9,10 @@ WallCannon* TileManager::wallTraps[30][17];
 D2DGraphics* TileManager::gfx;
 SpriteSheet* TileManager::WorldSpriteSheets[10];
 Door* TileManager::stageDoor = NULL;
-int TileManager::m_currentWorld;
-int TileManager::m_currentLevel;
+unsigned int TileManager::m_currentWorld;
+unsigned int TileManager::m_currentLevel;
+float TileManager::characterPosX;
+float TileManager::characterPosY;
 string const TileManager::levelList[10][10] = 
 {
 	("Levels/World1/Level1.txt"),
@@ -223,6 +225,7 @@ void TileManager::checkColition(PlayerCharacter * P1)
 						{
 							P1->push(false, +colitionY);
 							P1->drop();
+							isOnTheGround = true;
 						}
 					
 					}
@@ -298,7 +301,20 @@ void TileManager::checkColition(PlayerCharacter * P1)
 				{
 					P1->die();
 					isDead = true;
-					wallTraps[x][y]->destroyArrow();
+					int a = 0, b = 0;
+					while (b < 17)
+					{
+						while (a< 30)
+						{
+							if (wallTraps[a][b] != NULL)
+							{
+								wallTraps[a][b]->destroyArrow();
+							}
+							a++;
+						}
+						b++;
+						a = 0;
+					}
 				}
 			}
 			x++;
@@ -317,6 +333,11 @@ void TileManager::checkColition(PlayerCharacter * P1)
 		}
 		P1->chackWallColition(isHittingWall);
 	}
+}
+
+void TileManager::loadPlayerCharacter(PlayerCharacter * P1)
+{
+	P1->load(characterPosX, characterPosY);
 }
 
 void TileManager::update()
@@ -450,6 +471,18 @@ void TileManager::loadStageTiles(int currentWorld, int currentLevel)
 		LevelFile >> posY;
 		stageDoor = new Door(posX, posY);
 	}
+
+	LevelFile >> isEmpty;
+	if(isEmpty == 0)
+	{
+		characterPosX = 0.0f;
+		characterPosY = 0.0f;
+	}else
+	{
+		LevelFile >> characterPosX;
+		LevelFile >> characterPosY;
+	}
+
 }
 
 void TileManager::initGFX(D2DGraphics * _gfx)

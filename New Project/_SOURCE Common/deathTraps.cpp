@@ -247,10 +247,10 @@ void WallCannon::shoot()
 			m_arrow = new WallArrow(pos_x + 16, pos_y, animationIndex);
 			break;
 		case 2:
-			m_arrow = new WallArrow(pos_x + 16, pos_y + 16, animationIndex);
+			m_arrow = new WallArrow(pos_x + 32, pos_y + 16, animationIndex);
 			break;
 		case 3:
-			m_arrow = new WallArrow(pos_x + 16, pos_y - 16, animationIndex);
+			m_arrow = new WallArrow(pos_x + 16, pos_y + 32, animationIndex);
 			break;
 		}
 	}

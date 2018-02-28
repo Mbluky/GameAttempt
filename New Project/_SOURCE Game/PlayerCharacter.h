@@ -7,6 +7,7 @@
 #include "../_SOURCE Common/Animations.h"
 #include "../_SOURCE Common/SpriteSheet.h"
 #include "../_SOURCE Game/KeyboardInput.h"
+#include "../_SOURCE Game/SoundSystem.h"
 
 class PlayerCharacter : public Character 
 {
@@ -16,6 +17,9 @@ class PlayerCharacter : public Character
 	SpriteSheet *characterSpriteSheetFliped;
 	SpriteSheet *thoughtBubble;
 	KeyState m_keystate, prevKeyState;
+	Sound* footStep;
+	Sound* m_jump;
+	Sound* m_land;
 	static ANIMATION animationList[5];
 	float positionX, positionY, xVelocity, yVelocity, defaultPosX, defaultPosY;
 	int state;

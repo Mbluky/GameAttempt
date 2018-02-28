@@ -17,11 +17,13 @@ TilePlacer::TilePlacer()
 	keyState = { false, false, false, false, false, false, false, false};
 	prevKeyState = { false, false, false, false, false, false, false, false};
 	stageDoor = NULL;
+	playerOne = NULL;
 }
 
 TilePlacer::~TilePlacer()
 {
-	delete StageTiles;
+	delete stageDoor;
+	delete playerOne;
 }
 
 void TilePlacer::initStageTiles()
@@ -63,7 +65,6 @@ void TilePlacer::initStageTiles()
 		y = 0;
 		x++;
 	}
-	playerOne = NULL;
 }
 
 void TilePlacer::getInput(E_KeyState keyState_)
@@ -75,6 +76,7 @@ void TilePlacer::getInput(E_KeyState keyState_)
 void TilePlacer::getGFX(D2DGraphics* GFX)
 {
 	gfx = GFX;
+	playerOne->initGFX(GFX);
 	TilePlacerCursor = new SpriteSheet(L"_SOURCE Assets/Selecter.png", gfx, true);
 	curentTileSet = new SpriteSheet(TileSpriteSheets[curentSpriteSheet], gfx, true);
 	curentspikeSprites = new SpriteSheet(L"_SOURCE Assets/Spikes.png", gfx, true);
@@ -147,7 +149,7 @@ void TilePlacer::placeTile()
 	}
 	else if (curentMode == 4)
 	{
-		playerOne = new P1(posX / 44, posY / 44);
+		playerOne = new P1(posX, posY);
 	}
 }
  void TilePlacer::removeTile()

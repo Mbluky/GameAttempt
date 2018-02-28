@@ -20,6 +20,9 @@ class MainMenu : public GameLevel
 	Phrase* WorldList[10];
 	Phrase* LevelList[10];
 	Sound* MenuMusic;
+	Sound* Accept;
+	Sound* Back;
+	Sound* Change;
 	unsigned int selection;
 	unsigned int subMenu;
 	unsigned int selectedWorld = 0;

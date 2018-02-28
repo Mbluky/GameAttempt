@@ -15,13 +15,16 @@ class TileManager
 	static SpriteSheet* WorldSpriteSheets[10];
 	static D2DGraphics* gfx;
 	static Door* stageDoor;
+	static float characterPosX;
+	static float characterPosY;
 	
-	static int m_currentWorld;
-	static int m_currentLevel;
+	static unsigned int m_currentWorld;
+	static unsigned int m_currentLevel;
 
 public:
 	static void drawTiles();
 	static void checkColition(PlayerCharacter* P1);
+	static void loadPlayerCharacter(PlayerCharacter* P1);
 	static void update();
 
 	static void loadStageTiles(int currentWorld, int currentLevel);

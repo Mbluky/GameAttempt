@@ -10,8 +10,8 @@ int LevelOne::nextMode = 0;
 void LevelOne::Load()
 {
 	isPaused = false;
-	PlayerOne->load(50.0f, 456.0f);
 	TileManager::loadStageTiles(world, level);
+	TileManager::loadPlayerCharacter(PlayerOne);
 	PauseMenu::load();
 }
 

@@ -1,4 +1,5 @@
 #include "../_SOURCE Game/PlayerCharacter.h"
+#include <tchar.h>
 
 ANIMATION PlayerCharacter::animationList[5]
 {
@@ -29,6 +30,16 @@ void PlayerCharacter::load(float X, float Y)
 	xVelocity = 0.0f;
 	yVelocity = 0.0f;
 	thought = 0;
+
+	TCHAR * fileName = _TEXT("_SOURCE Sound//footstep.wav");
+	footStep = new Sound(fileName);
+
+	fileName = _TEXT("_SOURCE Sound//jump.wav");
+	m_jump = new Sound(fileName);
+
+	fileName = _TEXT("_SOURCE Sound//landing.wav");
+	m_land = new Sound(fileName);
+
 	characterSpriteSheet = new SpriteSheet(L"_SOURCE Assets/spriteSheet 0.2.png", gfx, true);
 	characterSpriteSheetFliped = new SpriteSheet(L"_SOURCE Assets/spriteSheet 0.2 flipped.png", gfx, false);
 	thoughtBubble = new SpriteSheet(L"_Source Assets/Arrow up.png", gfx, false);
@@ -37,6 +48,12 @@ void PlayerCharacter::load(float X, float Y)
 void PlayerCharacter::unload()
 {
 	state = 0;
+	delete footStep;
+	delete m_jump;
+	delete m_land;
+	delete characterSpriteSheet;
+	delete characterSpriteSheetFliped;
+	delete thoughtBubble;
 }
 
 void PlayerCharacter::update()
@@ -56,7 +73,7 @@ void PlayerCharacter::update()
 	{
 		die();
 	}
-	if(positionY > 730 || positionY < -100)
+	if(positionY > 730 || positionY < -150)
 	{
 		die();
 	}
@@ -135,8 +152,9 @@ void PlayerCharacter::jump()
 	if (state == 0)
 	{
 		state = 1;
-		yVelocity = -15;
+		yVelocity = -15.5f;
 		switchAnimation(2);
+		m_jump->Play(1.0f, 0.5f);
 	}
 }
 
@@ -145,6 +163,7 @@ void PlayerCharacter::die()
 	state = 0;
 	xVelocity = 0;
 	yVelocity = 0;
+	m_land->Play(1.0f, 0.1f);
 	positionX = defaultPosX;
 	positionY = defaultPosY;
 }
@@ -233,7 +252,7 @@ float* PlayerCharacter::getColitionData()
 
 void PlayerCharacter::fall()
 {
-	if(state == 1)
+	if(state == 1 && yVelocity < 21)
 	{
 		yVelocity += 1;
 	}
@@ -257,6 +276,7 @@ bool PlayerCharacter::getWallColition()
 void PlayerCharacter::hitScealing()
 {
 	yVelocity = 0;
+	m_land->Play(1.0f, 0.25f);
 }
 
 void PlayerCharacter::drop()

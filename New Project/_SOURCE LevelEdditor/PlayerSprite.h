@@ -6,7 +6,7 @@
 class P1
 {
 	float posX, posY;
-	SpriteSheet* p1;
+	static SpriteSheet* p1;
 	ANIMATION defaultAnimation{ 11, 18, 0, 1, 1 };
 public:
 	P1(float X, float Y)
@@ -18,9 +18,18 @@ public:
 	{
 		delete p1;
 	}
+	
+	static void initGFX(D2DGraphics* gfx)
+	{
+		p1 = new SpriteSheet(L"_SOURCE Assets/SpriteSheet 0.2.png", gfx, true);
+	}
+
 	void draw()
 	{
-		p1->Draw(1, defaultAnimation, posX, posY);
+		if (p1 != NULL) 
+		{
+			p1->Draw(1, defaultAnimation, posX, posY);
+		}
 	}
 	float getPosX()
 	{

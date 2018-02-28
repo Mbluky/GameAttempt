@@ -145,5 +145,8 @@
     <ClCompile Include="_SOURCE Common\Doors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="_SOURCE LevelEdditor\PlayerSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
