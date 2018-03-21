@@ -13,7 +13,7 @@ unsigned int TileManager::m_currentWorld;
 unsigned int TileManager::m_currentLevel;
 float TileManager::characterPosX;
 float TileManager::characterPosY;
-string const TileManager::levelList[10][10] = 
+string const TileManager::levelList[5][10] = 
 {
 	("Levels/World1/Level1.txt"),
 	("Levels/World1/Level2.txt"),
@@ -65,56 +65,6 @@ string const TileManager::levelList[10][10] =
 	("Levels/World5/Level8.txt"),
 	("Levels/World5/Level9.txt"),
 	("Levels/World5/Level10.txt"),
-	("Levels/World6/Level1.txt"),
-	("Levels/World6/Level2.txt"),
-	("Levels/World6/Level3.txt"),
-	("Levels/World6/Level4.txt"),
-	("Levels/World6/Level5.txt"),
-	("Levels/World6/Level6.txt"),
-	("Levels/World6/Level7.txt"),
-	("Levels/World6/Level8.txt"),
-	("Levels/World6/Level9.txt"),
-	("Levels/World6/Level10.txt"),
-	("Levels/World7/Level1.txt"),
-	("Levels/World7/Level2.txt"),
-	("Levels/World7/Level3.txt"),
-	("Levels/World7/Level4.txt"),
-	("Levels/World7/Level5.txt"),
-	("Levels/World7/Level6.txt"),
-	("Levels/World7/Level7.txt"),
-	("Levels/World7/Level8.txt"),
-	("Levels/World7/Level9.txt"),
-	("Levels/World7/Level10.txt"),
-	("Levels/World8/Level1.txt"),
-	("Levels/World8/Level2.txt"),
-	("Levels/World8/Level3.txt"),
-	("Levels/World8/Level4.txt"),
-	("Levels/World8/Level5.txt"),
-	("Levels/World8/Level6.txt"),
-	("Levels/World8/Level7.txt"),
-	("Levels/World8/Level8.txt"),
-	("Levels/World8/Level9.txt"),
-	("Levels/World8/Level10.txt"),
-	("Levels/World9/Level1.txt"),
-	("Levels/World9/Level2.txt"),
-	("Levels/World9/Level3.txt"),
-	("Levels/World9/Level4.txt"),
-	("Levels/World9/Level5.txt"),
-	("Levels/World9/Level6.txt"),
-	("Levels/World9/Level7.txt"),
-	("Levels/World9/Level8.txt"),
-	("Levels/World9/Level9.txt"),
-	("Levels/World9/Level10.txt"),
-	("Levels/World10/Level1.txt"),
-	("Levels/World10/Level2.txt"),
-	("Levels/World10/Level3.txt"),
-	("Levels/World10/Level4.txt"),
-	("Levels/World10/Level5.txt"),
-	("Levels/World10/Level6.txt"),
-	("Levels/World10/Level7.txt"),
-	("Levels/World10/Level8.txt"),
-	("Levels/World10/Level9.txt"),
-	("Levels/World10/Level10.txt"),
 };
 
 
@@ -155,6 +105,11 @@ void TileManager::drawTiles()
 	x = 0;
 	y = 0;
 
+	if (stageDoor != NULL)
+	{
+		stageDoor->draw();
+	}
+
 	while (y<17)
 	{
 		while (x<30)
@@ -169,10 +124,7 @@ void TileManager::drawTiles()
 		y++;
 	}
 
-	if(stageDoor != NULL)
-	{
-		stageDoor->draw();
-	}
+	
 }
 
 void TileManager::checkColition(PlayerCharacter * P1)
@@ -493,11 +445,6 @@ void TileManager::initGFX(D2DGraphics * _gfx)
 	WorldSpriteSheets[2] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
 	WorldSpriteSheets[3] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
 	WorldSpriteSheets[4] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
-	WorldSpriteSheets[5] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
-	WorldSpriteSheets[6] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
-	WorldSpriteSheets[7] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
-	WorldSpriteSheets[8] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
-	WorldSpriteSheets[9] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
 }
 
 

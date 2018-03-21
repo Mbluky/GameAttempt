@@ -11,7 +11,7 @@ class TileManager
 	static defaultTile* stageTiles[30][17];
 	static Spikes* stageSpikes[30][17];
 	static WallCannon* wallTraps[30][17];
-	static const string levelList[10][10];
+	static const string levelList[5][10];
 	static SpriteSheet* WorldSpriteSheets[10];
 	static D2DGraphics* gfx;
 	static Door* stageDoor;

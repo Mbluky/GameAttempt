@@ -55,7 +55,7 @@ void MainMenu::Update()
 				selection++;
 				quit->getSelected(true);
 			}
-			else
+			
 			{
 				play->getSelected(false);
 				selection++;
@@ -83,9 +83,9 @@ void MainMenu::Update()
 	{
 		if (m_keyState.down && !m_prevKeyState.down)
 		{
-			if (selection  >= 9)
+			if (selection  >= 4)
 			{
-				WorldList[9]->getSelected(false);
+				WorldList[4]->getSelected(false);
 				selection = 0;
 				WorldList[0]->getSelected(true);
 			}else
@@ -101,8 +101,8 @@ void MainMenu::Update()
 			if(selection <= 0)
 			{
 				WorldList[0]->getSelected(false);
-				selection = 9;
-				WorldList[9]->getSelected(true);
+				selection = 4;
+				WorldList[4]->getSelected(true);
 			}else
 			{
 				WorldList[selection]->getSelected(false);
@@ -280,7 +280,7 @@ void MainMenu::Unload()
 	delete Change;
 	delete Accept;
 	delete Back;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		delete WorldList[i];
 		WorldList[i] = NULL;
@@ -305,7 +305,7 @@ void MainMenu::Render()
 		quit->draw();
 	}else if (subMenu == 1)
 	{
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			WorldList[i]->draw();
 		}

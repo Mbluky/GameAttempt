@@ -346,4 +346,5 @@ void WallCannon::WallArrow::update()
 {
 	pos_x += velocityX;
 	pos_y += velocityY;
+
 }
