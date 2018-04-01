@@ -17,7 +17,7 @@ class MainMenu : public GameLevel
 	Phrase* option;
 	Phrase* quit;
 	Phrase* gameVersion;
-	Phrase* WorldList[10];
+	Phrase* WorldList[5];
 	Phrase* LevelList[10];
 	Sound* MenuMusic;
 	Sound* Accept;

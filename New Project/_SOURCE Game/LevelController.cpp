@@ -4,13 +4,14 @@
 #include "../_SOURCE Common/Letters.h"
 #include "../_SOURCE Game/LevelOne.h"
 #include "../_SOURCE Game/TransitionMenu.h"
+#include "../_SOURCE Game/endScreen.h"
 
 GameLevel* LevelController::CurentLevel;
 bool LevelController::loading;
 HPTimer* LevelController::Timer;
 KeyBoard* LevelController::keyboard;
 KeyState LevelController::keyState;
-GameLevel* LevelController::Levels[3]{ new MainMenu(), new LevelOne(), new T_Menu()};
+GameLevel* LevelController::Levels[4]{ new MainMenu(), new LevelOne(), new T_Menu(), new EndScreen()};
 int LevelController::levelIndex;
 int LevelController::m_curentWorld = 0;
 int LevelController::m_curentLevel = 0;
@@ -43,20 +44,34 @@ void LevelController::SwitchLevel()
 		LevelOne::getCurrentLevel(m_curentWorld, m_curentLevel);
 	}else if (levelIndex == 1)
 	{
-		levelIndex = 2;
-		CurentLevel = Levels[levelIndex];
-		T_Menu::getCurrentLevel(m_curentWorld, m_curentLevel);
-		m_curentLevel++;
-		if(m_curentLevel > 9)
+		if (m_curentWorld == 4 && m_curentLevel == 9)
 		{
-			m_curentLevel = 0;
-			m_curentWorld++;
+			levelIndex = 3;
+			CurentLevel = Levels[levelIndex];
+		}
+		else 
+		{
+
+			levelIndex = 2;
+			CurentLevel = Levels[levelIndex];
+			T_Menu::getCurrentLevel(m_curentWorld, m_curentLevel);
+			m_curentLevel++;
+			if (m_curentLevel > 9)
+			{
+				m_curentLevel = 0;
+				m_curentWorld++;
+			}
 		}
 	}else if (levelIndex == 2)
 	{
 		levelIndex = 1;
 		CurentLevel = Levels[levelIndex];
 		LevelOne::getCurrentLevel(m_curentWorld, m_curentLevel);
+	}
+	else if(levelIndex == 3)
+	{
+		levelIndex = 0;
+		CurentLevel = Levels[levelIndex];
 	}
 	CurentLevel->Load();
 }

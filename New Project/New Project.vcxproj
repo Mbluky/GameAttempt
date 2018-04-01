@@ -23,6 +23,7 @@
     <ClInclude Include="_SOURCE Common\Vectors.h" />
     <ClInclude Include="_SOURCE Common\Win32Functions.h" />
     <ClInclude Include="_SOURCE Game\Character.h" />
+    <ClInclude Include="_SOURCE Game\endScreen.h" />
     <ClInclude Include="_SOURCE Game\GameLevel.h" />
     <ClInclude Include="_SOURCE Game\KeyboardInput.h" />
     <ClInclude Include="_SOURCE Game\LevelController.h" />
@@ -43,6 +44,7 @@
     <ClCompile Include="_SOURCE Common\Tiles.cpp" />
     <ClCompile Include="_SOURCE Common\Win32Function.cpp" />
     <ClCompile Include="_SOURCE Game\Character.cpp" />
+    <ClCompile Include="_SOURCE Game\endScreen.cpp" />
     <ClCompile Include="_SOURCE Game\GameLevel.cpp" />
     <ClCompile Include="_SOURCE Game\LevelController.cpp" />
     <ClCompile Include="_SOURCE Game\LevelOne.cpp" />

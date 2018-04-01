@@ -250,6 +250,11 @@ float* PlayerCharacter::getColitionData()
 	return colitionData;
 }
 
+float  PlayerCharacter::getVelocityY()
+{
+	return yVelocity;
+}
+
 void PlayerCharacter::fall()
 {
 	if(state == 1 && yVelocity < 21)

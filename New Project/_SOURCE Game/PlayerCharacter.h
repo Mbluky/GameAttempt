@@ -47,6 +47,7 @@ public:
 	void checkKeyPress(KeyState keyState);
 	void switchAnimation(int animationIndex);
 	float* getColitionData();
+	float getVelocityY();
 	void fall();
 	void checkState();
 	void chackWallColition(bool isHittingWall);

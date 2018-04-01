@@ -51,14 +51,14 @@ void MainMenu::Update()
 			}
 			else if (selection == 1)
 			{
-				option->getSelected(false);
-				selection++;
 				quit->getSelected(true);
+				option->getSelected(false);
+				selection = 2;
 			}
-			
+			else if(selection == 0)
 			{
 				play->getSelected(false);
-				selection++;
+				selection = 1;
 				option->getSelected(true);
 			}
 			Change->Play(1.0f, 0.5f);
@@ -169,7 +169,7 @@ void MainMenu::Update()
 
 void MainMenu::Load()
 {
-	GameName = new Phrase((string)"Game Attempt", 0, 10, 4);
+	GameName = new Phrase((string)"Normal Jumps 1", 0, 10, 4);
 	mainMenu = new Phrase((string)"Main Menu", 260, 300, 8);
 	play = new Phrase((string)"Play", 480, 440, 4);
 	option = new Phrase((string)"Options", 480, 500, 4);
@@ -177,6 +177,7 @@ void MainMenu::Load()
 
 	string WorldName("World ");
 	string StageName("Level ");
+
 	int j = 0;
 
 	for (int i = 0; i < 10; i++)
@@ -267,6 +268,8 @@ void MainMenu::Load()
 	Back = new Sound(fileName);
 
 	MenuMusic->Play(1.0f, 0.5f);
+
+	switchingTrigger = false;
 }
 
 void MainMenu::Unload()

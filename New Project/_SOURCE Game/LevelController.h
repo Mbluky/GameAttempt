@@ -14,7 +14,7 @@ class LevelController
 	static HPTimer* Timer;
 	static KeyBoard* keyboard;
 	static KeyState keyState;
-	static GameLevel* Levels[3];
+	static GameLevel* Levels[4];
 	static int levelIndex;
 	static int m_curentWorld, m_curentLevel;
 public:

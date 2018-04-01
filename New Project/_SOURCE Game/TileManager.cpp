@@ -168,7 +168,7 @@ void TileManager::checkColition(PlayerCharacter * P1)
 						if (deltaY < 0)
 						{
 							P1->push(false, -colitionY);
-							if (!P1->getWallColition())
+							if (!P1->getWallColition() && P1->getVelocityY() < 0)
 							{
 								P1->hitScealing();
 							}
@@ -434,7 +434,6 @@ void TileManager::loadStageTiles(int currentWorld, int currentLevel)
 		LevelFile >> characterPosX;
 		LevelFile >> characterPosY;
 	}
-
 }
 
 void TileManager::initGFX(D2DGraphics * _gfx)
@@ -446,5 +445,3 @@ void TileManager::initGFX(D2DGraphics * _gfx)
 	WorldSpriteSheets[3] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
 	WorldSpriteSheets[4] = new SpriteSheet(L"_SOURCE Assets/defaultTiles.png", gfx, true);
 }
-
-

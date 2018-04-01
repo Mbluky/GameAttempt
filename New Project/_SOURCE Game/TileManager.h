@@ -4,6 +4,7 @@
 #include "../_SOURCE Common/Tiles.h"
 #include "../_SOURCE Common/deathTraps.h"
 #include "../_SOURCE Common/Doors.h"
+#include "../_SOURCE Common/Letters.h"
 #include <math.h>
 
 class TileManager
@@ -17,10 +18,8 @@ class TileManager
 	static Door* stageDoor;
 	static float characterPosX;
 	static float characterPosY;
-	
 	static unsigned int m_currentWorld;
 	static unsigned int m_currentLevel;
-
 public:
 	static void drawTiles();
 	static void checkColition(PlayerCharacter* P1);

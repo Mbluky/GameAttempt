@@ -12,6 +12,7 @@
 
 class LevelOne: public GameLevel 
 {
+
 	int frame;
 	SpriteSheet* sprites;
 	bool isPaused, quitToMenu;
